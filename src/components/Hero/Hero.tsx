@@ -11,7 +11,7 @@ const TYPING_TEXTS = [
 ];
 
 const STATS = [
-  { value: '3+', label: 'Jahre Erfahrung' },
+  { value: '1+', label: 'Jahre Erfahrung' },
   { value: '9+', label: 'Projekte' },
   { value: '10+', label: 'Technologien' },
 ];

@@ -31,6 +31,17 @@ export function ProjectCard({ project }: Props) {
           </span>
         ))}
       </div>
+
+      {project.github && (
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noreferrer"
+          className={styles.githubLink}
+        >
+          GitHub →
+        </a>
+      )}
     </div>
   );
 }

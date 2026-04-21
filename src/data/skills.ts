@@ -11,12 +11,12 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       'Java',
       'Spring Boot',
+      'Node.js',
       'GraphQL',
-      'DGS Netflix',
-      'REST APIs',
-      'JUnit 5',
-      'PostgreSQL',
-      'MySQL',
+      'REST-APIs',
+      'RabbitMQ (RPC)',
+      'DataLoader',
+      'SQL',
     ],
   },
   {
@@ -25,10 +25,13 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       'React',
       'TypeScript',
+      'JavaScript',
       'Apollo Client',
+      'Tailwind CSS',
+      'Keycloak',
+      'Keycloakify',
       'HTML5',
       'CSS3',
-      'JavaScript',
     ],
   },
   {
@@ -40,9 +43,7 @@ export const skillCategories: SkillCategory[] = [
       'IntelliJ IDEA',
       'VS Code',
       'Postman',
-      'Maven',
-      'npm',
-      'Figma',
+      'Docker',
     ],
   },
 ];

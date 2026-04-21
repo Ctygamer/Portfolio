@@ -2,38 +2,56 @@ import styles from './CV.module.css';
 
 const EXPERIENCE = [
   {
-    period: '2024 – heute',
-    role: 'Full-Stack Developer',
-    company: 'Helvetic-Projects',
+    period: '2025 – aktuell',
+    role: 'Praktikant Applikationsentwickler EFZ',
+    company: 'Pritz-IT',
     description:
-      'Entwicklung von Enterprise-Software mit Java, Spring Boot, GraphQL (DGS Netflix) und React/TypeScript. Verantwortlich für Backend-APIs und Frontend-Komponenten.',
-    tags: ['Java', 'Spring Boot', 'GraphQL', 'React', 'TypeScript'],
+      'Mitarbeit an einer internen Full-Stack-Applikation mit Backend- und Frontend-Komponenten.',
+    tags: [
+      'Spring Boot',
+      'Node.js',
+      'GraphQL',
+      'React',
+      'RabbitMQ',
+      'DataLoader',
+      'REST-APIs',
+      'Java',
+      'JavaScript',
+      'TypeScript',
+      'Tailwind CSS',
+      'Keycloak',
+      'Keycloakify',
+      'Apollo Client',
+      'Docker',
+      'SQL',
+    ],
   },
   {
-    period: '2020 – 2024',
-    role: 'Lernender Informatiker EFZ',
-    company: 'Helvetic-Projects',
+    period: '2018 – 2024',
+    role: 'Monteur/Heizungsinstallateur',
+    company: 'Klimamacher/Strässle/SIRA/Fürer',
     description:
-      'Ausbildung zum Applikationsentwickler. Mitarbeit an realen Kundenprojekten, Aufbau von Full-Stack-Kenntnissen und Entwicklung eigener Projekte.',
-    tags: ['Java', 'React', 'TypeScript', 'PostgreSQL'],
+      'Tätigkeit als Monteur und Heizungsinstallateur in verschiedenen Unternehmen.',
+    tags: [],
+  },
+  {
+    period: '2015 – 2018',
+    role: 'Lernender Heizungsinstallateur EFZ',
+    company: 'Cofely AG',
+    description:
+      'Grundausbildung zum Heizungsinstallateur EFZ.',
+    tags: [],
   },
 ];
 
 const EDUCATION = [
   {
-    period: '2022 – 2024',
-    role: 'Berufsmaturität Technik',
-    company: 'Berufsmaturitätsschule',
-    description: 'Technische Berufsmaturität parallel zur Informatik-Ausbildung.',
-    tags: [],
-  },
-  {
-    period: '2020 – 2024',
-    role: 'Informatiker EFZ Applikationsentwicklung',
-    company: 'Berufsschule',
+    period: '2025 – aktuell',
+    role: 'Ausbildung Applikationsentwickler EFZ',
+    company: 'Benedict Schule Altstätten/Zürich',
     description:
-      'Eidgenössisches Fähigkeitszeugnis in Informatik mit Schwerpunkt Applikationsentwicklung.',
-    tags: [],
+      'Aktuelle Ausbildung mit Noten in Informatikkompetenzen 5.5, Überbetrieblichen Kursen 5.5, Mathematik 5.5 und Englisch 5.',
+    tags: ['Informatikkompetenzen 5.5', 'Überbetriebliche Kurse 5.5', 'Mathematik 5.5', 'Englisch 5'],
   },
 ];
 

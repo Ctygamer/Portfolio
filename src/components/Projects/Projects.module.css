@@ -98,6 +98,19 @@
   border-radius: 3px;
 }
 
+.githubLink {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--green);
+  margin-top: 8px;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.githubLink:hover {
+  color: var(--cyan);
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

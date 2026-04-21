@@ -10,7 +10,7 @@ export function Contact() {
     const name = (form.elements.namedItem('name') as HTMLInputElement).value;
     const email = (form.elements.namedItem('email') as HTMLInputElement).value;
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-    window.location.href = `mailto:caneryilmaz99@icloud.com?subject=Portfolio Kontakt von ${name}&body=${encodeURIComponent(message)}%0A%0AVon: ${name}%0AEmail: ${email}`;
+    window.location.href = `mailto:caner@mustafa.ch?subject=Portfolio Kontakt von ${name}&body=${encodeURIComponent(message)}%0A%0AVon: ${name}%0AEmail: ${email}`;
     setSent(true);
     setTimeout(() => setSent(false), 4000);
   };
@@ -32,14 +32,14 @@ export function Contact() {
 
             <div className={styles.links}>
               <a
-                href="mailto:caneryilmaz99@icloud.com"
+                href="mailto:caner@mustafa.ch"
                 className={styles.link}
               >
                 <span className={styles.linkIcon}>✉️</span>
                 <span>
                   <strong>Email</strong>
                   <br />
-                  caneryilmaz99@icloud.com
+                  caner@mustafa.ch
                 </span>
               </a>
 
