@@ -4,7 +4,7 @@ const TERMINAL_LINES = [
   { cmd: 'whoami', out: 'Caner Yilmaz' },
   { cmd: 'location', out: 'Gossau, Schweiz 🇨🇭' },
   { cmd: 'languages', out: 'Deutsch (Muttersprachler), Englisch (B2), Türkisch (Muttersprachler)' },
-  { cmd: 'education', out: 'Ausbildung Applikationsentwickler EFZ (2025-aktuell)' },
+  { cmd: 'education', out: 'Ausbildung Applikationsentwickler EFZ (2023-aktuell)' },
   { cmd: 'current_role', out: 'Praktikant Applikationsentwickler EFZ @ Pritz-IT' },
   { cmd: 'passion', out: 'Clean Code · Moderne Architekturen · Full-Stack Development' },
 ];
@@ -48,7 +48,7 @@ export function About() {
               <strong>React/TypeScript</strong>.
             </p>
             <p>
-              Nach mehreren Jahren als Heizungsinstallateur habe ich 2025 den
+              Nach mehreren Jahren als Heizungsinstallateur habe ich 2023 den
               Wechsel in die IT vollzogen. Seither absolviere ich die Ausbildung
               zum Applikationsentwickler EFZ und sammle bei Pritz-IT praktische
               Erfahrung in einer internen Full-Stack-Applikation.
