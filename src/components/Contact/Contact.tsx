@@ -2,17 +2,49 @@ import { type FormEvent, useState } from 'react';
 import styles from './Contact.module.css';
 
 export function Contact() {
+  const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const name = (form.elements.namedItem('name') as HTMLInputElement).value;
     const email = (form.elements.namedItem('email') as HTMLInputElement).value;
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-    window.location.href = `mailto:caner@mustafa.ch?subject=Portfolio Kontakt von ${name}&body=${encodeURIComponent(message)}%0A%0AVon: ${name}%0AEmail: ${email}`;
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+
+    setSending(true);
+    setError(null);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/caner@mustafa.ch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio Kontakt von ${name}`,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Nachricht konnte nicht gesendet werden.');
+      }
+
+      setSent(true);
+      form.reset();
+      setTimeout(() => setSent(false), 4000);
+    } catch {
+      setError('Senden fehlgeschlagen. Bitte versuche es erneut oder schreibe mir direkt per Email.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -97,8 +129,15 @@ export function Contact() {
             </div>
 
             <button type="submit" className={styles.submit}>
-              {sent ? '✓ Gesendet!' : 'Nachricht senden →'}
+              {sending ? 'Wird gesendet…' : sent ? '✓ Gesendet!' : 'Nachricht senden →'}
             </button>
+
+            {error && <p className={styles.error}>{error}</p>}
+            {sent && !error && (
+              <p className={styles.success}>
+                Danke, deine Nachricht wurde direkt an meine Mail gesendet.
+              </p>
+            )}
           </form>
         </div>
       </div>

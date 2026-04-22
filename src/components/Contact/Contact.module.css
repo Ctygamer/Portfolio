@@ -124,10 +124,32 @@
   align-self: flex-start;
 }
 
+.submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
 .submit:hover {
   background: var(--cyan);
   box-shadow: 0 0 24px rgba(0, 212, 255, 0.4);
   transform: translateY(-2px);
+}
+
+.error,
+.success {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.error {
+  color: #ff7a7a;
+}
+
+.success {
+  color: var(--green);
 }
 
 @media (max-width: 768px) {
