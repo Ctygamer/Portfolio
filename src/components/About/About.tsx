@@ -48,10 +48,9 @@ export function About() {
               <strong>React/TypeScript</strong>.
             </p>
             <p>
-              Nach mehreren Jahren als Heizungsinstallateur habe ich 2023 den
-              Wechsel in die IT vollzogen. Seither absolviere ich die Ausbildung
-              zum Applikationsentwickler EFZ und sammle bei Pritz-IT praktische
-              Erfahrung in einer internen Full-Stack-Applikation.
+              Seit 2023 absolviere ich die Ausbildung zum Applikationsentwickler EFZ.
+              Seit 2025 sammle ich bei Pritz-IT praktische Erfahrung in einer
+              internen Full-Stack-Applikation.
             </p>
             <p>
               Mein Fokus liegt auf sauberer Architektur, typsicherem Code und

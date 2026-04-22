@@ -2,7 +2,7 @@ import styles from './CV.module.css';
 
 const EXPERIENCE = [
   {
-    period: '2023 – aktuell',
+    period: '2025 – aktuell',
     role: 'Praktikant Applikationsentwickler EFZ',
     company: 'Pritz-IT',
     description:
@@ -27,7 +27,7 @@ const EXPERIENCE = [
     ],
   },
   {
-    period: '2018 – 2023',
+    period: '2018 – 2025',
     role: 'Monteur/Heizungsinstallateur',
     company: 'Klimamacher/Strässle/SIRA/Fürer',
     description:
