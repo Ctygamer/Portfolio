@@ -1,4 +1,7 @@
+import { motion } from 'framer-motion';
 import { projects } from '../../data/projects';
+import { FadeUp, staggerContainer, cardVariant } from '../ui/AnimateOnScroll';
+import { TiltCard } from '../ui/TiltCard';
 import { ProjectCard } from './ProjectCard';
 import styles from './Projects.module.css';
 
@@ -6,16 +9,28 @@ export function Projects() {
   return (
     <section id="projects" className={styles.projects}>
       <div className="container">
-        <h2 className="section-title">
-          <span>03.</span>Projekte
-        </h2>
-        <p className="section-subtitle">Ausgewählte Projekte aus meiner Entwicklungsarbeit.</p>
+        <FadeUp>
+          <h2 className="section-title">
+            <span>03.</span>Projekte
+          </h2>
+          <p className="section-subtitle">Ausgewählte Projekte aus meiner Entwicklungsarbeit.</p>
+        </FadeUp>
 
-        <div className={styles.grid}>
+        <motion.div
+          className={styles.grid}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-60px' }}
+        >
           {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
+            <motion.div key={p.id} variants={cardVariant} style={{ perspective: 800 }}>
+              <TiltCard>
+                <ProjectCard project={p} />
+              </TiltCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

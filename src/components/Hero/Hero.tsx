@@ -1,6 +1,8 @@
 import { useRef } from 'react';
 import { useMatrixRain } from '../../hooks/useMatrixRain';
 import { useTypingEffect } from '../../hooks/useTypingEffect';
+import { useCountUp } from '../../hooks/useCountUp';
+import { MagneticButton } from '../ui/MagneticButton';
 import styles from './Hero.module.css';
 
 const TYPING_TEXTS = [
@@ -11,10 +13,22 @@ const TYPING_TEXTS = [
 ];
 
 const STATS = [
-  { value: '1+', label: 'Jahre Erfahrung' },
-  { value: '9+', label: 'Projekte' },
-  { value: '10+', label: 'Technologien' },
+  { num: 1, suffix: '+', label: 'Jahre Erfahrung' },
+  { num: 9, suffix: '+', label: 'Projekte' },
+  { num: 10, suffix: '+', label: 'Technologien' },
 ];
+
+function StatItem({ num, suffix, label }: { num: number; suffix: string; label: string }) {
+  const { ref, count } = useCountUp(num, 1.4);
+  return (
+    <div className={styles.stat}>
+      <span className={styles.statValue} ref={ref}>
+        {count}{suffix}
+      </span>
+      <span className={styles.statLabel}>{label}</span>
+    </div>
+  );
+}
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -44,24 +58,31 @@ export function Hero() {
 
         <div className={styles.stats}>
           {STATS.map((s) => (
-            <div key={s.label} className={styles.stat}>
-              <span className={styles.statValue}>{s.value}</span>
-              <span className={styles.statLabel}>{s.label}</span>
-            </div>
+            <StatItem key={s.label} {...s} />
           ))}
         </div>
 
         <div className={styles.buttons}>
-          <button className={styles.btnPrimary} onClick={() => scrollTo('#projects')}>
+          <MagneticButton
+            className={styles.btnPrimary}
+            onClick={() => scrollTo('#projects')}
+          >
             Projekte ansehen
-          </button>
-          <button className={styles.btnSecondary} onClick={() => scrollTo('#contact')}>
+          </MagneticButton>
+          <MagneticButton
+            className={styles.btnSecondary}
+            onClick={() => scrollTo('#contact')}
+          >
             Kontakt
-          </button>
+          </MagneticButton>
         </div>
       </div>
 
-      <button className={styles.scrollIndicator} onClick={() => scrollTo('#about')} aria-label="Nach unten scrollen">
+      <button
+        className={styles.scrollIndicator}
+        onClick={() => scrollTo('#about')}
+        aria-label="Nach unten scrollen"
+      >
         <span />
       </button>
     </section>
