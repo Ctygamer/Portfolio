@@ -111,6 +111,67 @@
   color: var(--cyan);
 }
 
+/* ── Top Secret ─────────────────────────────────── */
+.secretCard {
+  border-color: rgba(255, 40, 40, 0.25);
+}
+
+.secretCard:hover {
+  border-color: rgba(255, 40, 40, 0.5);
+  box-shadow: 0 0 20px rgba(255, 40, 40, 0.12);
+}
+
+.secretName {
+  filter: blur(6px);
+  user-select: none;
+}
+
+.secretOverlay {
+  position: relative;
+  flex: 1;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 40, 40, 0.2);
+  background: rgba(255, 20, 20, 0.04);
+}
+
+.secretXPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 40, 40, 0.12) 0px,
+      rgba(255, 40, 40, 0.12) 1px,
+      transparent 1px,
+      transparent 10px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 40, 40, 0.12) 0px,
+      rgba(255, 40, 40, 0.12) 1px,
+      transparent 1px,
+      transparent 10px
+    );
+}
+
+.secretLabel {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #ff2828;
+  text-shadow: 0 0 12px rgba(255, 40, 40, 0.5);
+  user-select: none;
+  transform: rotate(-8deg);
+}
+
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);

@@ -13,7 +13,7 @@ interface Props {
 
 export function ProjectCard({ project }: Props) {
   return (
-    <div className={`${styles.card} ${project.featured ? styles.featured : ''}`}>
+    <div className={`${styles.card} ${project.featured ? styles.featured : ''} ${project.secret ? styles.secretCard : ''}`}>
       <div className={styles.cardTop}>
         <span className={styles.folderIcon}>📁</span>
         <span className={`${styles.status} ${STATUS_COLORS[project.status]}`}>
@@ -21,8 +21,18 @@ export function ProjectCard({ project }: Props) {
         </span>
       </div>
 
-      <h3 className={styles.cardName}>{project.name}</h3>
-      <p className={styles.cardDesc}>{project.description}</p>
+      <h3 className={`${styles.cardName} ${project.secret ? styles.secretName : ''}`}>
+        {project.name}
+      </h3>
+
+      {project.secret ? (
+        <div className={styles.secretOverlay}>
+          <div className={styles.secretXPattern} aria-hidden="true" />
+          <span className={styles.secretLabel}>TOP SECRET</span>
+        </div>
+      ) : (
+        <p className={styles.cardDesc}>{project.description}</p>
+      )}
 
       <div className={styles.cardTags}>
         {project.tags.map((tag) => (
@@ -32,7 +42,7 @@ export function ProjectCard({ project }: Props) {
         ))}
       </div>
 
-      {project.github && (
+      {project.github && !project.secret && (
         <a
           href={project.github}
           target="_blank"

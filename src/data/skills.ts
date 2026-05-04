@@ -46,4 +46,16 @@ export const skillCategories: SkillCategory[] = [
       'Docker',
     ],
   },
+  {
+    title: 'AI & Automation',
+    icon: '🤖',
+    skills: [
+      'Prompt Engineering',
+      'Claude (Anthropic)',
+      'OpenAI Codex',
+      'Claude Code',
+      'AI Workflow Automation',
+      'Vibe Coding',
+    ],
+  },
 ];

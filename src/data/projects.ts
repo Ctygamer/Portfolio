@@ -7,6 +7,7 @@ export interface Project {
   featured: boolean;
   github?: string;
   note?: string;
+  secret?: boolean;
 }
 
 export const projects: Project[] = [
@@ -16,9 +17,10 @@ export const projects: Project[] = [
     description:
       'Enterprise-Software für Unternehmenskunden, entwickelt im Rahmen des Praktikums bei Pritz-IT. Komplexe Geschäftsprozesse, skalierbare Architektur mit Spring Boot und GraphQL.',
     tags: ['Java', 'Spring Boot', 'GraphQL', 'React', 'TypeScript'],
-    status: 'In Produktion',
+    status: 'In Entwicklung',
     featured: true,
     note: 'Firmen-Repository (Pritz-IT)',
+    secret: true,
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ export const projects: Project[] = [
     status: 'In Entwicklung',
     featured: true,
     note: 'Firmen-Repository (Pritz-IT)',
+    secret: true,
   },
   {
     id: 3,
@@ -36,9 +39,10 @@ export const projects: Project[] = [
     description:
       'Social Platform für lokale Aktivitäten und Events, entwickelt bei Pritz-IT mit GraphQL API und Apollo Client.',
     tags: ['React', 'TypeScript', 'GraphQL', 'Apollo Client'],
-    status: 'Abgeschlossen',
+    status: 'In Entwicklung',
     featured: false,
     note: 'Firmen-Repository (Pritz-IT)',
+    secret: true,
   },
   {
     id: 4,
