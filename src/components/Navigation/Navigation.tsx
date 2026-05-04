@@ -12,11 +12,34 @@ const links = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Scroll-Spy: verfolgt welcher Abschnitt gerade sichtbar ist
+  useEffect(() => {
+    const sectionIds = links.map((l) => l.href.slice(1));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection('#' + entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -35,7 +58,11 @@ export function Navigation() {
         <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} onClick={(e) => handleClick(e, l.href)}>
+              <a
+                href={l.href}
+                onClick={(e) => handleClick(e, l.href)}
+                className={activeSection === l.href ? styles.activeLink : ''}
+              >
                 {l.label}
               </a>
             </li>

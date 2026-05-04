@@ -51,6 +51,28 @@
   color: var(--green);
 }
 
+.activeLink {
+  color: var(--green) !important;
+  position: relative;
+}
+
+.activeLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  animation: navIndicator 0.25s ease;
+}
+
+@keyframes navIndicator {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
 .burger {
   display: none;
   flex-direction: column;

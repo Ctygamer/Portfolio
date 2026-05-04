@@ -1,7 +1,8 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useMatrixRain } from '../../hooks/useMatrixRain';
 import { useTypingEffect } from '../../hooks/useTypingEffect';
 import { useCountUp } from '../../hooks/useCountUp';
+import { useScrambleText } from '../../hooks/useScrambleText';
 import { MagneticButton } from '../ui/MagneticButton';
 import styles from './Hero.module.css';
 
@@ -32,8 +33,17 @@ function StatItem({ num, suffix, label }: { num: number; suffix: string; label: 
 
 export function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const nameRef = useRef<HTMLHeadingElement>(null);
   useMatrixRain(canvasRef, 0.04);
   const typedText = useTypingEffect(TYPING_TEXTS, 80);
+  const { displayText, scramble } = useScrambleText('CANER YILMAZ');
+
+  // data-text Attribut mit displayText synchronisieren (für Glitch-CSS)
+  useEffect(() => {
+    if (nameRef.current) {
+      nameRef.current.setAttribute('data-text', displayText);
+    }
+  }, [displayText]);
 
   const scrollTo = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -47,8 +57,14 @@ export function Hero() {
           <span className={styles.prompt}>$</span> Hallo, ich bin
         </p>
 
-        <h1 className={styles.name} data-text="CANER YILMAZ">
-          CANER YILMAZ
+        <h1
+          ref={nameRef}
+          className={styles.name}
+          data-text="CANER YILMAZ"
+          onMouseEnter={scramble}
+          style={{ cursor: 'default' }}
+        >
+          {displayText}
         </h1>
 
         <p className={styles.typing}>

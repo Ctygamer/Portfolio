@@ -5,13 +5,13 @@ import { Skills } from './components/Skills/Skills';
 import { Projects } from './components/Projects/Projects';
 import { CV } from './components/CV/CV';
 import { Contact } from './components/Contact/Contact';
-import { ScrollProgress } from './components/ui/ScrollProgress';
+import { CustomCursor } from './components/ui/CustomCursor';
 import styles from './App.module.css';
 
 function App() {
   return (
     <>
-      <ScrollProgress />
+      <CustomCursor />
       <Navigation />
       <main>
         <Hero />

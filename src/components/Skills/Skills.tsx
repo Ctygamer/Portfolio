@@ -28,8 +28,12 @@ export function Skills() {
                 <h3 className={styles.cardTitle}>{cat.title}</h3>
               </div>
               <div className={styles.pills}>
-                {cat.skills.map((skill) => (
-                  <span key={skill} className={styles.pill}>
+                {cat.skills.map((skill, i) => (
+                  <span
+                    key={skill}
+                    className={styles.pill}
+                    style={{ '--pill-delay': `${0.2 + i * 0.08}s` } as React.CSSProperties}
+                  >
                     {skill}
                   </span>
                 ))}

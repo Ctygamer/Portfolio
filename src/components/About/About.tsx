@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FadeUp, staggerContainer, lineVariant } from '../ui/AnimateOnScroll';
+import { TypingText } from '../ui/TypingText';
 import styles from './About.module.css';
 
 const TERMINAL_LINES = [
@@ -10,6 +11,10 @@ const TERMINAL_LINES = [
   { cmd: 'current_role', out: 'Praktikant Applikationsentwickler EFZ @ Pritz-IT' },
   { cmd: 'passion', out: 'Clean Code · Moderne Architekturen · Full-Stack Development' },
 ];
+
+// Delay pro Zeile: Zeile schlägt rein + kurze Pause, dann Tippen
+const LINE_DELAY_MS = 520;
+const LINE_APPEAR_MS = 300;
 
 export function About() {
   return (
@@ -38,11 +43,17 @@ export function About() {
                 whileInView="show"
                 viewport={{ once: true, margin: '-40px' }}
               >
-                {TERMINAL_LINES.map((line) => (
+                {TERMINAL_LINES.map((line, i) => (
                   <motion.div key={line.cmd} className={styles.terminalLine} variants={lineVariant}>
                     <span className={styles.terminalPrompt}>$ </span>
                     <span className={styles.terminalCmd}>{line.cmd}</span>
-                    <div className={styles.terminalOut}>{line.out}</div>
+                    <div className={styles.terminalOut}>
+                      <TypingText
+                        text={line.out}
+                        delay={LINE_APPEAR_MS + i * LINE_DELAY_MS}
+                        speed={20}
+                      />
+                    </div>
                   </motion.div>
                 ))}
                 <motion.div className={styles.terminalLine} variants={lineVariant}>

@@ -47,14 +47,37 @@
   color: var(--text);
   background: rgba(0, 255, 136, 0.06);
   border: 1px solid var(--border);
-  padding: 5px 12px;
+  padding: 5px 12px 8px;
   border-radius: 4px;
   transition: border-color 0.2s, color 0.2s;
+  position: relative;
+  overflow: hidden;
 }
 
 .pill:hover {
   border-color: var(--green);
   color: var(--green);
+}
+
+/* Animierter Ladebalken am unteren Rand */
+.pill::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: pillBar 0.6s ease forwards;
+  animation-delay: var(--pill-delay, 0.1s);
+}
+
+@keyframes pillBar {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
 }
 
 @media (max-width: 768px) {
